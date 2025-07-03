@@ -56,8 +56,6 @@ def apply_upper_cap_and_redistribute(df, mask, cap):
 data['Capped Weight'] = data['Adjusted Weight']
 apply_upper_cap_and_redistribute(data, pure_classification, 0.08)
 apply_upper_cap_and_redistribute(data, quasi_marginal_classification, 0.08)
-# data.loc[pure_classification & (data['Capped Weight'])>.08, 'Capped Weight'] = .08
-# data.loc[quasi_marginal_classification & (data['Capped Weight']>.08), 'Capped Weight'] = .08
 
 #Applying lower cap in each bucket
 def apply_lower_cap(df, mask, minimum_value):
@@ -127,5 +125,5 @@ def apply_ric_rule(df):
 apply_ric_rule(data)
 
 data['Final Weight'] = data['Capped Weight'] / data['Capped Weight'].sum()
-data.to_excel('Final_Edited_Output_(2).xlsx', index=False)
-print(f"Program run successfully!")
+data.to_excel('Result.xlsx', index=False)
+print(f"Program executed successfully!")
